@@ -11,7 +11,8 @@ builder.Services.AddGrpc();
 // ÅäÖÃ Kestrel ·þÎñÆ÷
 builder.WebHost.UseKestrel(options =>
 {
-    options.Listen(IPAddress.Loopback, 5000);
+	//Any:0.0.0.0 Loopback:just localhost
+    options.Listen(IPAddress.Any, 5000);
     options.Listen(IPAddress.Loopback, 5001, listenOptions =>
     {
         listenOptions.UseHttps("test.pfx", "1qaz2wsxE");
